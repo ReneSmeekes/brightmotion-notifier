@@ -1,25 +1,26 @@
 {
-  "name": "Notifier for Google Wave",
-  "version": "3",
-  
-  "description": "Displays number of unread Waves.",
-  "icons": {
-    "16": "icon_16.png",
-    "32": "icon_32.png",
-    "48": "icon_48.png",
-    "128": "icon_128.png"
-  },
-
-  "browser_action": {
-      "name": "Notifier for Google Wave",
-      "default_icon": "icons/set1/not_logged_in.png",
-      "default_title": "Notifier for Google Wave",
-      "popup": {
-         "path": "popup.html"
-      }
-  },
-
-  "background_page": "background.html",
-  "options_page": "options.html",
-  "permissions": ["tabs", "http://wave.google.com/*", "https://wave.google.com/*"]
+	"name": "Notifier for Google Wave",
+	"version": "1.1",
+	"description": "Displays number of unread waves and notifies you of new ones.",
+	
+	"icons": {
+		"16": "icon_16.png",
+		"32": "icon_32.png",
+		"48": "icon_48.png",
+		"128": "icon_128.png"
+	},
+	
+	"permissions": ["tabs", "http://wave.google.com/*", "https://wave.google.com/*"],
+	
+	"browser_action": {
+		"name": "Notifier for Google Wave",
+		"default_icon": "icons/set1/not_logged_in.png",
+		"default_title": "Notifier for Google Wave",
+		"popup": {
+			"path": "popup.html"
+		}
+	},
+	
+	"background_page": "background.html",
+	"options_page": "options.html"
 }

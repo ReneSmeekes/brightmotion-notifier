@@ -1,5 +1,6 @@
 Notifier for Google Wave
 =======
+This version of Notifier for Google Wave was forked from the original Chrome extension after that project started breaking and stopped receiving updates.  Below is the README from the original project.
 
 Notifier for Google Wave is an extension for Google Chrome to display 
 number of unread Waves in your Google Wave account or your Google Apps 
