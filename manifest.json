@@ -1,6 +1,6 @@
 {
 	"name": "Notifier for Google Wave",
-	"version": "4",
+	"version": "5",
 	"description": "Displays number of unread waves and notifies you of new ones.",
 	
 	"icons": {

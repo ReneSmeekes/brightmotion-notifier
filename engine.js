@@ -344,29 +344,35 @@ function drawIconAtRotation() {
 
 var notif = null;
 function notify(unreadCount) {
-  if(notif != null) { notif.cancel();  notif = null;}
-  if (notif == null) {
-    var text = "";
-    var desc = "";
-    if(unreadCount == 1) {
-      text = "1 unread wave";
-      desc = getWaves()[0].subject.substr( 0, 50 )+": "+getWaves()[0].snippet.substr( 0, 80 );
-    } else {
-      text = unreadCount + " unread waves";
-      $(getWaves()).each(function(i) {
-        if (i+1 < 5 ) {
-          if (desc == "") {
-            desc = getWaves()[i].subject.substr( 0, 40 );
-          } else {
-					  desc = desc + ", " + getWaves()[i].subject.substr( 0, 40 );
-          }
+	if(notif != null) { notif.cancel();  notif = null;}
+	if (notif == null) {
+		var icon = "";
+		var text = "";
+		var desc = "";
+		if(unreadCount == 1) {
+			text = "1 unread wave";
+			desc = getWaves()[0].subject.substr( 0, 50 )+": "+getWaves()[0].snippet.substr( 0, 80 );
+		} else {
+			text = unreadCount + " unread waves";
+			$(getWaves()).each(function(i) {
+				if (i+1 < 5 ) {
+					if (desc == "") {
+						desc = getWaves()[i].subject.substr( 0, 40 );
+					} else {
+						desc = desc + ", " + getWaves()[i].subject.substr( 0, 40 );
+					}
 				}
-      });
-    }
-    notif = webkitNotifications.createNotification('icon_70.png', text, desc);
-    notif.show();
-    setTimeout("hide_notif();", 5000);
-  }
+			});
+		}
+		if (unreadCount < 9) {
+			icon = "icons/count/count" + unreadCount + ".png";
+		} else {
+			icon = "icons/count/count9.png";
+		}
+		notif = webkitNotifications.createNotification(icon, text, desc);
+		notif.show();
+		setTimeout("hide_notif();", 5000);
+	}
 }
 
 function hide_notif() {
