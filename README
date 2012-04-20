@@ -1,11 +1,21 @@
 Notifier for Google Wave
 =======
-This version of Notifier for Google Wave was forked from the original Chrome extension after that project started breaking and stopped receiving updates.  Below is the README from the original project.
+This version of Notifier for Wave in a Box  was forked from the original Notifier for Google Wave.
 
-Notifier for Google Wave is an extension for Google Chrome to display 
-number of unread Waves in your Google Wave account or your Google Apps 
-Wave account. Download is available at
-https://chrome.google.com/extensions/detail/aphncaagnlabkeipnbbicmcahnamibgb
+Notifier for  Wave in a Box is an extension for Google Chrome to display 
+number of unread Waves in your Wave in a Box account.
 
-Notifier for Google Wave Chrome Extension is licensed under the Apache
+Notifier for Wave in a Box Chrome Extension is licensed under the Apache
 Licence, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0.html).
+
+This extension works with waveinabox.net WIAB domain, but can be easily adapted to work with any
+WIAB instance.
+
+To change the WIAB domain:
+Update the urlPrefix in engine.js, for example if domain is "vegalabz.com:9898" :
+var urlPrefix = 'http://vegalabz.com:9898';
+
+Grant the relevant permissions. Edit the manifest.json, replace http://vegalabz.com:9898" with
+your own domain.
+
+"permissions": [ "tabs", "http://vegalabz.com:9898/*", "https://vegalabz.com:9898/*" ]

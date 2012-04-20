@@ -8,7 +8,7 @@ var loggedInImage;
 var loggedNoImage;
 var loggedOutImage;
 
-var urlPrefix = 'https://wave.google.com/';
+var urlPrefix = 'http://vegalabz.com:9898';
 var wavesArray = null;
 var timer = null;
 var version = "3";
@@ -84,13 +84,7 @@ var settings = {
 }
 
 function getBaseUrl() {
-	var url = urlPrefix;
-	if (settings.appsDomain && settings.appsDomain.length > 0) {
-		url += 'a/' + settings.appsDomain;
-	} else {
-		url += 'wave';
-	}
-	return url;
+	return urlPrefix;
 }
 
 function getHomeUrl() {
@@ -111,14 +105,14 @@ function getWaveWindowOptions() {
 
 function getFeedUrl() {
 	var url = getBaseUrl();
-	url += '/notification';
+	url += '/notification/';
 	return url;
 }
 
 function getWaveUrl(wid) {
 	var url = getHomeUrl();
 	if (getWaveWindowOptions() == '') url += '#';
-	url += 'restored:wave:' + wid.replace(/\+/g, '%252B');
+	url += wid;
 	return url;
 }
 
@@ -224,8 +218,8 @@ function getInboxCount(onSuccess, onError) {
                     id: this['waveId'],
                     subject: this['title'],
                     snippet: this['snippet'],
-                    total: this['totalBlips']+'',
-                    unread: this['unreadBlips']+''
+                    total: this['blipCount']+'',
+                    unread: this['unreadCount']+''
                   });
                 }
 							});

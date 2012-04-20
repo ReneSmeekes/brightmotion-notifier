@@ -16,17 +16,13 @@ function save_options() {
 	bkg.settings.appsDomain = $('#apps_domain_value').val();
   bkg.settings.popupNotification = $('#popupNotification')[0].checked;
   bkg.settings.soundNotification = $('#soundNotification')[0].checked;
-	bkg.settings.hideNavBox = $('#hideNavBox')[0].checked;
-	bkg.settings.hideContactsBox = $('#hideContactsBox')[0].checked;
-	bkg.settings.hideSearchBox = $('#hideSearchBox')[0].checked;
-	bkg.settings.hidePreviewBox = $('#hidePreviewBox')[0].checked;
-    var iconRadios = document.forms[0].icon_set;
-    for(var i in iconRadios) {
-        if(iconRadios[i].checked) {
-            bkg.settings.iconsSet = iconRadios[i].value;
-            break;
-        }
-    }
+  var iconRadios = document.forms[0].icon_set;
+  for(var i in iconRadios) {
+      if(iconRadios[i].checked) {
+          bkg.settings.iconsSet = iconRadios[i].value;
+          break;
+      }
+  }
 	refresh_extension();
 
 	$('#options_saved').fadeIn('fast');
@@ -36,8 +32,6 @@ function save_options() {
 // Restores select box state to saved value from localStorage.
 $(function() {
 	$('#refresh').val(bkg.settings.pollInterval / 60000);
-	//$('#timeout').val(bkg.settings.timeout / 1000);
-	$('#apps_domain_value').val(bkg.settings.appsDomain);
   $('#popupNotification')[0].checked = bkg.settings.popupNotification;
   if(bkg.settings.popupNotification) {
 		$('#notifications_text').show();
@@ -45,19 +39,6 @@ $(function() {
 		$('#notifications_text').hide();
 	}
   $('#soundNotification')[0].checked = bkg.settings.soundNotification;
-	$('#hideNavBox')[0].checked = bkg.settings.hideNavBox;
-	$('#hideContactsBox')[0].checked = bkg.settings.hideContactsBox;
-	$('#hideSearchBox')[0].checked = bkg.settings.hideSearchBox;
-	$('#hidePreviewBox')[0].checked = bkg.settings.hidePreviewBox;
-
-	if(bkg.settings.appsDomain == "") {
-		$('#apps_domain_check')[0].checked = "";
-		$('#apps_domain_value_text').hide();
-	} else {
-		$('#apps_domain_check')[0].checked = "checked";
-		$('#apps_domain_value').val(bkg.settings.appsDomain);
-		$('#apps_domain_value_text').show();
-	}
 
 	var iconRadios = document.forms[0].icon_set;
     var iconFound = false;
@@ -106,12 +87,6 @@ function toggle_popup() {
 	$('#notifications_text').toggle();
 }
 
-// Toggle display of input text for apps domain based on checkbox state.
-function toggle_appsdomain() {
-	$('#apps_domain_value_text').toggle();
-  $('#apps_domain_value').val('');
-}
-
 // Refresh the extension by reseting timer.
 function refresh_extension() {
 	bkg.refresh(); 
@@ -122,7 +97,7 @@ function refresh_extension() {
   <form onsubmit="return false;">
   <div id="body-container"> 
  
-    <div id="header"><h1>Notifier for Google Wave</h1></div> 
+    <div id="header"><h1>Notifier for Wave in a Box</h1></div> 
  
     <div id="extensionTemplate"> 
  
@@ -172,30 +147,6 @@ function refresh_extension() {
 
         <div id="developer_tools" class="wbox-dev-mode showInDevMode"> 
           <div class="developer-mode-top"> 
-            When opening Google Wave
-          </div> 
-        </div>
-
-        <div class="developer-mode-content">
-           Hide nav box: <input id="hideNavBox" type="checkbox"><br/>
-           Hide contacts box: <input id="hideContactsBox" type="checkbox"><br/>
-           Hide search box: <input id="hideSearchBox" type="checkbox"><br/>
-           Don't show preview popup of unread waves: <input id="hidePreviewBox" type="checkbox">
-        </div>
-
-        <div id="developer_tools" class="wbox-dev-mode showInDevMode"> 
-          <div class="developer-mode-top"> 
-            Google Apps
-          </div> 
-        </div>
-
-        <div class="developer-mode-content">
-          Activate: <input type="checkbox" id="apps_domain_check" onclick="toggle_appsdomain();"/><br/>
-          <span id="apps_domain_value_text" style="display:none;">Domain: https://wave.google.com/a/<input id="apps_domain_value" type="text" placeholder="yourdomain.com" value=""/>/</span>
-        </div>
-
-        <div id="developer_tools" class="wbox-dev-mode showInDevMode"> 
-          <div class="developer-mode-top"> 
             Icons
           </div> 
         </div>
@@ -222,10 +173,12 @@ function refresh_extension() {
           </tr> 
           </table> 
         </div>  
-        <div id="get-moar-extensions">By Zachary &ldquo;Gamer_Z.&rdquo; Yaro (<a href="http://github.com/zmyaro/wave-notifier" target="_blank">github</a>).</div>
+        <div id="get-moar-extensions">Modified for WIAB by Yuri Zelikov (<a href="https://github.com/vega113/wave-notifier" target="_blank">GitHub</a>).</div>
 	<div class="credits">
 		Original &ldquo;Notifier for Google Wave&rdquo; extension by <a href="http://www.jeremyselier.com">Jeremy Selier</a>, with the help of <a href="http://www.google.com/profiles/artiom.chi">Artiom Chilaru</a> and Joakim Andersson
 		<br/>
+    And by Zachary &ldquo;Gamer_Z.&rdquo; Yaro (<a href="http://github.com/zmyaro/wave-notifier" target="_blank">GitHub</a>).
+    <br/>
 		<a href="http://github.com/jeremys/Notifier-for-Google-Wave">Source code licensed under the Apache License.</a>
 		<br/>
 		Some icons by <a href="http://desc.se/">destructoBOT</a>, some others thanks to <a href="http://midgardination.deviantart.com/art/iChrome-Icon-Template-138927254">Midgardination</a>
