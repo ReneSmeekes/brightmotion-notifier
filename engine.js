@@ -8,7 +8,7 @@ var loggedInImage;
 var loggedNoImage;
 var loggedOutImage;
 
-var urlPrefix = 'http://vegalabz.com:9898';
+var urlPrefix = 'http://waveinabox.net';
 var wavesArray = null;
 var timer = null;
 var version = "3";
@@ -213,7 +213,7 @@ function getInboxCount(onSuccess, onError) {
           var waves = result;
           if(waves) {
 						$(waves).each(function() {
-                if(this['unreadBlips'] != 0) {
+                if(this['unreadCount'] != 0) {
                   wavesArray.push({
                     id: this['waveId'],
                     subject: this['title'],
