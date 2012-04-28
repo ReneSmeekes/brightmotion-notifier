@@ -18,5 +18,5 @@
    "name": "Notifier for Wave in a Box (WIAB)",
    "options_page": "options.html",
    "permissions": [ "tabs", "http://waveinabox.net/*", "https://waveinabox.net/*" ],
-   "version": "1"
+   "version": "2"
 }
