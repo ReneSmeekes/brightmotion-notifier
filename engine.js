@@ -104,9 +104,13 @@ function getWaveWindowOptions() {
 }
 
 function getFeedUrl() {
-	var url = getBaseUrl();
-	url += '/notification/';
-	return url;
+  var url = getBaseUrl();
+  if (settings.query != '') {
+    url += '/notification/?query=' + settings.query;
+  } else {
+    url += '/notification/' ;
+  }
+  return url;
 }
 
 function getWaveUrl(wid) {
@@ -119,7 +123,7 @@ function getWaveUrl(wid) {
 function pluginInit() {
     if(show_options_page && (localStorage["version"] == null || localStorage["version"] != version)) {
         localStorage["version"] = version;
-        chrome.tabs.create({url : "options.html"});        
+        chrome.tabs.create({url : "options.html"});
     } else if(show_options_page == false && (localStorage["version"] == null || localStorage["version"] != version)) {
 		localStorage["version"] = version;
 	}
@@ -129,7 +133,7 @@ function pluginInit() {
 	canvasContext = $('#canvas')[0].getContext('2d');
 	chrome.browserAction.setBadgeBackgroundColor({color:[190, 190, 190, 230]});
 	chrome.browserAction.setBadgeText({text:"?"});
-	
+
 	startRequest();
 }
 
@@ -141,7 +145,7 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo) {
 });
 
 function goOptions() {
-	chrome.tabs.create({url : "options.html"}); 
+	chrome.tabs.create({url : "options.html"});
 }
 
 function goHome() {
@@ -306,7 +310,7 @@ function drawIconAtRotation() {
 	canvasContext.clearRect(0, 0, 19, 19);
 	canvasContext.translate(19/2, 19/2);
 	canvasContext.rotate(2*Math.PI*ease(rotation));
-  
+
 	var img = loggedInImage;
   switch(unreadCount)
 	{
@@ -325,7 +329,7 @@ function drawIconAtRotation() {
       default:
           if(settings.iconsSet == "set1") chrome.browserAction.setBadgeBackgroundColor({color:[125, 194, 93, 255]});
 	        else chrome.browserAction.setBadgeBackgroundColor({color:[170, 80, 80, 255]});
-		      img = loggedInImage;        
+		      img = loggedInImage;
           chrome.browserAction.setTitle({title:unreadCount + " unread waves"});
 		      chrome.browserAction.setBadgeText({text:unreadCount+""});
 		      break;

@@ -13,6 +13,7 @@ var bkg = chrome.extension.getBackgroundPage();
 function save_options() {
 	bkg.settings.pollInterval = parseInt($('#refresh').val()) * 60000;
 	bkg.settings.timeout = 1000 * 15;
+	bkg.settings.query = $('#query').val();
 	bkg.settings.appsDomain = $('#apps_domain_value').val();
   bkg.settings.popupNotification = $('#popupNotification')[0].checked;
   bkg.settings.soundNotification = $('#soundNotification')[0].checked;
@@ -131,6 +132,13 @@ function refresh_extension() {
                 <option value="20">20 minutes</option> 
                 <option value="25">25 minutes</option> 
                 <option value="30">30 minutes</option> 
+              </select> 
+        </div>
+        
+        <div class="developer-mode-content">
+          Display notifications for: <select id="query"> 
+                <option value="">All waves I can access: Inbox and Shared</option> 
+                <option value="in:inbox">Only waves in my Inbox</option> 
               </select> 
         </div>
 
