@@ -2,7 +2,7 @@
    "background_page": "background.html",
    "browser_action": {
       "default_icon": "icons/set1/not_logged_in.png",
-      "default_title": "Notifier for WIAB",
+      "default_title": "Notifier for Wave in a Box (WIAB)",
       "name": "Notifier for WIAB",
       "popup": {
          "path": "popup.html"
@@ -15,10 +15,8 @@
       "32": "icon_32.png",
       "48": "icon_48.png"
    },
-   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD4pG2zG+pHLy3zi8aONw4TBKscjlkgkq1g+040L1Kzu5gosEYTUpmjCttuEczqt3LSfJKYAaSR0LA7PqFwHDeSaOka7B15NDuYpH7s3A5rvoGPcfMwmWH3Hb1uVwtoGOmSn92Um1ptjAvJ6sWBpnD+FH4kU7htI8m/2oY2BS+VRQIDAQAB",
-   "name": "Notifier for Google Wave",
+   "name": "Notifier for Wave in a Box (WIAB)",
    "options_page": "options.html",
-   "permissions": [ "tabs", "http://vegalabz.com:9898/*", "https://waveinabox.net/*" ],
-   "update_url": "http://clients2.google.com/service/update2/crx",
-   "version": "5"
+   "permissions": [ "tabs", "http://waveinabox.net/*", "https://waveinabox.net/*" ],
+   "version": "1"
 }
