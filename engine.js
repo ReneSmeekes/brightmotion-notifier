@@ -8,7 +8,7 @@ var loggedInImage;
 var loggedNoImage;
 var loggedOutImage;
 
-var urlPrefix = 'http://waveinabox.net';
+var urlPrefix = 'http://wave.brightmotion.tk';
 var wavesArray = null;
 var timer = null;
 var version = "3";

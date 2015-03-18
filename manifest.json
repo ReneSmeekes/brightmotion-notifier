@@ -17,6 +17,6 @@
    },
    "name": "Notifier for Wave in a Box (WIAB)",
    "options_page": "options.html",
-   "permissions": [ "tabs", "http://waveinabox.net/*", "https://waveinabox.net/*" ],
+   "permissions": [ "tabs", "http://wave.brightmotion.tk/*", "https://wave.brightmotion.tk/*" ],
    "version": "2"
 }
